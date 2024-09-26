@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+           crossorigin=""/>
+
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+           crossorigin=""></script>
+
+    </head>
+
+    <body>
+        <div id="map" style="height: 500px"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [41.8642673,-87.7139834],
+              zoom: 11
+          });
+
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 12,
+               minZoom: 10
+            }).addTo(map);
+		
+		var musicVenue = L.icon({
+		iconUrl: 'Music_Icon.png',
+		iconSize:     [38, 38],
+		iconAnchor:   [19, 19],
+		popupAnchor:  [0, -10]
+		});
+		
+		  var pic1 = '<img src="https://photos.smugmug.com/Riot-Fest-Day-One-2024-in-Chicago-IL/i-nR8ddmK/0/Ls4wHWDDwnMhSdFjNMWvRT7sXXf5SjPqHZkSzRQzz/XL/Fall%20Out%20Boy%20%285%20of%205%29-XL.jpg" alt="RiotFest" width="225">';
+		  var pic2 = '<img src="https://m.cbhomes.com/p/156/11624527/fd90C915B1FD490/pdl23tp.jpg" alt="BAS" width="225">';
+		  var pic3 = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Huntington_Bank_Pavilion_at_Northerly_Island.jpg/1024px-Huntington_Bank_Pavilion_at_Northerly_Island.jpg" alt="HBP" width="225">';
+		 
+		  var marker1 = L.marker([41.8622696,-87.7042475], {icon: musicVenue}).addTo(map); //Douglass Park - Riot Fest
+		  marker1.bindPopup("Riot Fest at Douglass Park" + "<br>" + "<br>" + pic1);
+		  var marker2 = L.marker([41.812975,-87.6680329], {icon: musicVenue}).addTo(map); //El Barrio Art Show
+		  marker2.bindPopup("El Barrio Art Show on second floor" + "<br>" + "<br>" + pic2);
+		  var marker3 = L.marker([41.8629808,-87.6190944], {icon: musicVenue}).addTo(map); //Huntington Bank Pavilion @ Northerly Island
+		  marker3.bindPopup("Avril Lavigne at Huntington Bank Pavilion" + "<br>" + "<br>" + pic3);
+		  
+        </script>
+   </body>
+</html>
